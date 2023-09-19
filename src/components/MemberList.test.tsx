@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 
-import MOCK_MEMBERS from "mocks/members";
+import { bethZell, calvinHobbes, isaiahWilliams } from "mocks/members";
 import MemberList from "./MemberList";
 
 describe("MemberList component", () => {
@@ -14,15 +14,18 @@ describe("MemberList component", () => {
     });
   });
 
-  describe("populated list", () => {
-    beforeEach(() => {
-      render(<MemberList members={MOCK_MEMBERS} />);
+  describe("unread message tag", () => {
+    it("displays X Unread Messages when the member has unread messages", () => {
+      render(<MemberList members={[calvinHobbes]} />);
+      screen.getByText("2 Unread Messages");
     });
-    it("renders the names of members", () => {
-      MOCK_MEMBERS.forEach(({ name: { first, last } }) => {
-        screen.getByText(`${first} ${last}`);
-      });
+    it("displays 1 Unread Message  when the member has just one unread message", () => {
+      render(<MemberList members={[isaiahWilliams]} />);
+      screen.getByText("1 Unread Message");
     });
-    it.todo("displays an unread message count");
+    it("displays no unread message count when the member has no unread messages", () => {
+      render(<MemberList members={[bethZell]} />);
+      expect(screen.queryByText(/Unread Message/)).toBeNull();
+    });
   });
 });

@@ -3,9 +3,9 @@
 ## User Story
 
 > As an Eleanor Health clinical staff person,
- 
+
 > When I am viewing my Member List,
- 
+
 > I want to be able to see each member's photo,
 
 > So that I can recognize them during in-clinic visits.
