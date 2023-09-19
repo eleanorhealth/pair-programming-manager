@@ -20,6 +20,7 @@ Field `messages` on `Member` contains a list of messages, each with a boolean `r
 
 1. An `<UnreadMessageTag />` should display near each member name. This component already exists, but is not yet rendered anywhere.
 2. Don't worry about styling for this story.
-3. The tag should indicate the number of unread messages, example: "2 Unread Messages"
-4. Users with zero unread messages should not have a tag.
-5. Users with one unread message should have the word "Message" instead of "Messages."
+3. Ensure the tests pass (`yarn test`). They cover the following cases:
+   - The tag should indicate the number of unread messages, example: "2 Unread Messages"
+   - Users with zero unread messages should not have a tag.
+   - Users with one unread message should have the word "Message" instead of "Messages."
